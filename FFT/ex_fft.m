@@ -20,17 +20,9 @@ title('X=S+Zero-Mean Random Noise')
 xlabel('t (milliseconds)')
 ylabel('X(t)')
 
-% sin frequency analysis
-Y = fft(S);
-P2 = abs(Y/L);
-P1 = P2(1:L/2+1);
-P1(2:end-1) = 2*P1(2:end-1);
 
-subplot(223);
-plot(f,P1) 
-title('Single-Sided Amplitude Spectrum of S(t)')
-xlabel('f (Hz)')
-ylabel('|P1(f)|')
+
+
 
 % sin with noise frequency analysis
 Y = fft(X);
@@ -43,5 +35,17 @@ f = Fs*(0:(L/2))/L;
 subplot(224);
 plot(f,P1) 
 title('Single-Sided Amplitude Spectrum of X(t)')
+xlabel('f (Hz)')
+ylabel('|P1(f)|')
+
+% sin frequency analysis
+Y = fft(S);
+P2 = abs(Y/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+
+subplot(223);
+plot(f,P1) 
+title('Single-Sided Amplitude Spectrum of S(t)')
 xlabel('f (Hz)')
 ylabel('|P1(f)|')
